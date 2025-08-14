@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Contratos de Mandato Terpel</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="background-overlay"></div>
+    <button id="logoutBtn" class="logout-btn" style="display: none;">Cerrar sesión</button>
+    <div id="authOverlay" class="auth-overlay" style="display: none;">
+        <div class="login-card">
+            <h2>Iniciar sesión</h2>
+            <p class="login-subtitle">Accede para generar contratos</p>
+            <div class="login-fields">
+                <input type="text" id="username" class="input-field" placeholder="Usuario" autocomplete="username">
+                <input type="password" id="password" class="input-field" placeholder="Contraseña" autocomplete="current-password">
+                <button class="btn-primary" id="loginBtn">Ingresar</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="main-card">
+            <div class="header">
+                <h1>Generador de Contratos de Mandato Terpel</h1>
+                <p>Carga tu certificado de existencia y representación legal para generar tu contrato</p>
+            </div>
+
+            <div class="upload-section">
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-icon">📄</div>
+                    <div class="upload-text">
+                        <h3>Arrastra tu archivo PDF aquí</h3>
+                        <p>o haz clic para seleccionar un archivo</p>
+                    </div>
+                    <input type="file" id="fileInput" accept=".pdf" hidden>
+                </div>
+                <div class="file-info" id="fileInfo" style="display: none;">
+                    <div class="file-name" id="fileName"></div>
+                    <button class="remove-file" id="removeFile">✕</button>
+                </div>
+            </div>
+
+            <div class="contract-section">
+                <label for="contractType">Tipo de contrato:</label>
+                <select id="contractType" class="select-input">
+                    <option value="">Selecciona un tipo de contrato</option>
+                    <option value="Industria - Contrato de Mandato Certificados de Carbono">Industria - Contrato de Mandato Certificados de Carbono</option>
+                    <option value="EDS Afiliadas - Contrato de Mandato Certificados de Carbono">EDS Afiliadas - Contrato de Mandato Certificados de Carbono</option>
+                </select>
+            </div>
+
+            <div class="stations-section" id="stationsSection" style="display: none;">
+                <h3>Estaciones de Servicio</h3>
+                <div class="stations-container" id="stationsContainer">
+                    <!-- Las estaciones se agregarán dinámicamente aquí -->
+                </div>
+                <button class="btn-secondary" id="addStationBtn">
+                    <span>+</span> Agregar estación
+                </button>
+            </div>
+
+            <div class="actions">
+                <button class="btn-primary" id="generateBtn" disabled>
+                    Generar contrato
+                </button>
+            </div>
+
+            <div class="loading" id="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>Generando contrato...</p>
+            </div>
+
+            <div class="download-section" id="downloadSection" style="display: none;">
+                <div class="success-message">
+                    <div class="success-icon">✓</div>
+                    <h3>¡Contrato generado exitosamente!</h3>
+                    <button class="btn-primary" id="downloadBtn">
+                        Descargar contrato
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
